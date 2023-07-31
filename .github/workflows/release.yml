@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+concurrency:
+  group: ci-release
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: '🧹 Lint'
+    uses: ./.github/workflows/_lint.yml
+    if:  ${{ !startsWith(github.head_ref, 'renovate/') && github.event.pull_request.draft == false }}
+
+  analize:
+    name: '🔎 Analize'
+    uses: ./.github/workflows/_analize.yml
+    if:  ${{ !startsWith(github.head_ref, 'renovate/') && github.event.pull_request.draft == false }}
+
+  test:
+    name: '🧪 Test'
+    uses: ./.github/workflows/_test.yml
+
+  release:
+    name: '🚀 Release'
+    needs: [test, analize, lint]
+    uses: ./.github/workflows/_release.yml
+    if:  ${{ !startsWith(github.head_ref, 'renovate/') && github.event.pull_request.draft == false }}

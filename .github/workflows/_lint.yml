@@ -1,15 +1,15 @@
-name: Fix PHP code style issues
+name: '🧹 Lint'
 
 on:
-  push:
-    paths:
-      - '**.php'
+  - workflow_call
+  - workflow_dispatch
 
 permissions:
   contents: write
 
 jobs:
   php-code-styling:
+    name: '🧹 PHP Code Styling'
     runs-on: ubuntu-latest
 
     steps:
