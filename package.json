@@ -1,0 +1,23 @@
+{
+  "name": ":package_slug",
+  "version": "1.0.0",
+  "description": ":package_description",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "keywords": [
+      ":vendor_name",
+      "laravel",
+      ":package_slug"
+  ],
+  "author": ":author_name",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/github": "^9.0.3",
+    "husky": "^8.0.3",
+    "semantic-release": "^21.0.7"
+  }
+}
