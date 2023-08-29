@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   php-code-styling:
-    name: '🧹 PHP Code Styling'
+    name: pint
     runs-on: ubuntu-latest
 
     steps:
